@@ -8,8 +8,8 @@ on:
     branches:
       - master
 uses: actions/checkout@v2
-  with:
-    fetch-depth: 0
+with:
+  fetch-depth: 0
 jobs:
   job1:
     runs-on: ubuntu-latest
