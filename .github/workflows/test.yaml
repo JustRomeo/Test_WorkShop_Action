@@ -1,31 +1,37 @@
 name: Tests
 on:
-  push:
-    branches:
-      - master
-      - Dev
-  pull_request:
-    branches:
-      - master
+    push:
+        branches:
+            - master
+            # - Dev
+    # pull_request:
+    #     branches:
+    #         - master
 jobs:
-  job1:
-    name: Test_HellowWorld
-    runs-on: ubuntu-latest
-    steps:
-    - id: step1
-      run: echo "Welcome to the Github Actions workshop !"
-  Test:
-      name: Unit_Test
-      runs-on: ubuntu-latest
-      container: docker://epitechcontent/epitest-docker
-      steps:
-      - id: Checkout
-        uses: actions/checkout@v2
+    job1:
+        name: Test_HellowWorld
+        runs-on: ubuntu-latest
+        steps:
+          - id: step1
+            run: echo "Welcome to the Github Actions workshop !"
+    Test:
+        name: Unit_Test
+        runs-on: ubuntu-latest
+        container: docker://epitechcontent/epitest-docker
+        steps:
+          - id: Checkout
+            uses: actions/checkout@v2
 
-      - id: unit_test
-        shell: bash
-        run: make tests_run
+          - id: unit_test
+            shell: bash
+            run: make tests_run
 
-      - id: coverage
-        shell: bash
-        run: make coverage
+          - id: coverage
+            shell: bash
+            run: make coverage
+
+          - id: Artifact
+            uses: actions/upload-artifact@v2
+            with:
+                name: my-artifact
+                path: ./
