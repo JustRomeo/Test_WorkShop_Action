@@ -2,11 +2,11 @@ name: Tests
 on:
   push:
     branches:
-      - main
+      - master
       - Dev
   pull_request:
     branches:
-      - main
+      - master
 jobs:
   job1:
     runs-on: ubuntu-latest
