@@ -7,17 +7,21 @@ on:
   pull_request:
     branches:
       - master
-uses: actions/checkout@v2
-with:
-  fetch-depth: 0
+# uses: actions/checkout@v2
+# with:
+#   fetch-depth: 0
 jobs:
   job1:
+    name: Test_HellowWorld
     runs-on: ubuntu-latest
     steps:
     - id: step1
       run: echo "Welcome to the Github Actions workshop !"
-  unit-test:
-    - id: unit_test
-      run: make tests_run
-    - id: coverage
-      run: make coverage
+  Test:
+      name: Unit_Test
+      runs-on: ubuntu-latest
+      steps:
+      - id: unit_test
+        run: make tests_run
+      - id: coverage
+        run: make coverage
