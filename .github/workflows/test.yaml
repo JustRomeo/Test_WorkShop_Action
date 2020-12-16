@@ -23,9 +23,9 @@ jobs:
         run: actions/checkout@v2
 
       - id: unit_test
-        shel: bash
+        shell: bash
         run: make tests_run
 
       - id: coverage
-        shel: bash
+        shell: bash
         run: make coverage
