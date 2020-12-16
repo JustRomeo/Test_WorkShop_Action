@@ -13,3 +13,11 @@ jobs:
     steps:
     - id: step1
       run: echo "Welcome to the Github Actions workshop !"
+  unit-test:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - id: unit_test
+      run: make tests_run
+    - id: coverage
+      run: make coverage
