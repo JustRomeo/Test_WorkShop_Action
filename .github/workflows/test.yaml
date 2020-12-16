@@ -20,7 +20,7 @@ jobs:
       container: docker://epitechcontent/epitest-docker
       steps:
       - id: Checkout
-        run: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - id: unit_test
         shell: bash
