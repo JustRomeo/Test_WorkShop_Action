@@ -7,9 +7,6 @@ on:
   pull_request:
     branches:
       - master
-# uses: actions/checkout@v2
-# with:
-#   fetch-depth: 0
 jobs:
   job1:
     name: Test_HellowWorld
@@ -20,8 +17,15 @@ jobs:
   Test:
       name: Unit_Test
       runs-on: ubuntu-latest
+      container: docker://epitechcontent/epitest-docker
       steps:
+      - id: Checkout
+        run: actions/checkout@v2
+
       - id: unit_test
+        shel: bash
         run: make tests_run
+
       - id: coverage
+        shel: bash
         run: make coverage
